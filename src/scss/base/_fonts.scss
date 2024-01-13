@@ -1,7 +1,47 @@
 @font-face {
-  src: local("Jost-Regular"), url("../fonts/Jost-Regular.woff2") format("woff2");
-  font-family: "Jost";
+  src: local("Gilroy-Bold"), url("../fonts/Gilroy-Bold.woff2") format("woff2");
+  font-family: "Gilroy";
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  src: local("Gilroy-ExtraBold"), url("../fonts/Gilroy-ExtraBold.woff2") format("woff2");
+  font-family: "Gilroy";
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  src: local("Gilroy-Medium"), url("../fonts/Gilroy-Medium.woff2") format("woff2");
+  font-family: "Gilroy";
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  src: local("Gilroy-Regular"), url("../fonts/Gilroy-Regular.woff2") format("woff2");
+  font-family: "Gilroy";
   font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  src: local("Roboto-Regular"), url("../fonts/Roboto-Regular.woff2") format("woff2");
+  font-family: "Roboto";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  src: local("Roboto-Thin"), url("../fonts/Roboto-Thin.woff2") format("woff2");
+  font-family: "Roboto";
+  font-weight: 100;
   font-style: normal;
   font-display: swap;
 }

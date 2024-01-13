@@ -17,12 +17,23 @@
   clip: rect(0 0 0 0);
 }
 
+// скрыть элемент по классу по атрибуту
+[hidden] {
+  display: none;
+}
+
+.hidden {
+  overflow: hidden auto;
+  visibility: hidden;
+}
+
 // отключение скрола при блокировке body html
 .no-scroll {
   overflow-y: hidden;
 }
 
 // на весь экран модальное окно
+
 .disable-scroll {
   position: fixed;
   left: 0;
@@ -37,13 +48,17 @@
 html {
   height: 100%;
   font-family: var(--font-default);
+  line-height: 1;
   scroll-behavior: smooth;
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   min-width: rem(320);
   min-height: 100%;
   font-family: var(--font-default);
+  line-height: 1;
   color: var(--color-text);
   background-color: var(--color-bg);
 
@@ -52,35 +67,8 @@ body {
   }
 }
 
-// контейнер размер
-.container {
-  margin: 0 auto;
-  padding: 0 var(--container-padding);
-  max-width: var(--container-width);
-}
-
-.container-fluid {
-  margin: 0 auto;
-  padding: 0 var(--container-padding);
-  max-width: var(--container-fluid-width);
-}
-
 /* ---------------- stiky_footer --------------------- */
-html,
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  font-size: 16px;
-  line-height: 1;
-}
 
 .footer {
   margin-top: auto;
 }
-
-// [class*="__container"] {
-//   margin: 0 auto;
-//   padding: 0 15px;
-//   max-width: 1450px;
-// }

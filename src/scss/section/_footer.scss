@@ -14,15 +14,6 @@
     }
   }
 
-  &__left {
-  }
-
-  &__logo {
-  }
-
-  &__right {
-  }
-
   &__copy {
     padding-left: rem(10);
     font-weight: 400;
@@ -30,6 +21,6 @@
     font-size: rem(16);
     line-height: 1.6;
     text-align: center;
-    color: var(--color-light);
+    color: var(--color-text);
   }
 }

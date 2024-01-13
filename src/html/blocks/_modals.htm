@@ -1,8 +1,8 @@
 <div class="graph-modal">
-  <div class="graph-modal__container" role="dialog" aria-modal="true" data-graph-target="service1">
+  <div class="graph-modal__container" role="dialog" aria-modal="true" data-graph-target="order">
     <button class="graph-modal__close js-modal-close" aria-label="Закрыть модальное окно"></button>
     <div class="graph-modal__content service-order">
-      <h2 class="service-order__title graph-modal__title subtitle">Заказать сайт визитку</h2>
+      <h2 class="service-order__title graph-modal__title subtitle">Заказать</h2>
       <form action="#" class="form service-order__form service-order__form--card" id="ask-form-id">
         <label class="service-order__label form__label">
           <input class="form__input input-name" placeholder="Имя*" type="text" name="name">
@@ -16,150 +16,8 @@
         <label class="service-order__hidden" hidden>
           <input type="text" name="hidden" value="site_card">
         </label>
-        <button class="service-order__btn btn btn--dark">Оформить заявку</button>
+        <button class="service-order__btn btn btn--dark">Оформить</button>
       </form>
     </div>
   </div>
-
-  <div class="graph-modal__container" role="dialog" aria-modal="true" data-graph-target="service2">
-    <button class="graph-modal__close js-modal-close" aria-label="Закрыть модальное окно"></button>
-    <div class="graph-modal__content">
-      <h2 class="service-order__title graph-modal__title subtitle">Заказать лендинг</h2>
-      <form action="#" class="form service-order__form service-order__form--landing" id="consult-form-id">
-        <label class="service-order__label form__label">
-          <input class="form__input input-name" placeholder="Имя*" type="text" name="name">
-        </label>
-        <label class="service-order__label form__label">
-          <input class="form__input input-tel" placeholder="Телефон" type="tel" name="tel" autocomplete="off">
-        </label>
-        <label class="service-order__label form__label">
-          <input class="form__input input-email" placeholder="E-mail*" type="email" name="email">
-        </label>
-        <label class="service-order__hidden" hidden>
-          <input type="text" name="hidden" value="site_langing">
-        </label>
-        <button class="service-order__btn btn btn--dark">Оформить заявку</button>
-      </form>
-    </div>
-  </div>
-
-  <div class="graph-modal__container" role="dialog" aria-modal="true" data-graph-target="service3">
-    <button class="graph-modal__close js-modal-close" aria-label="Закрыть модальное окно"></button>
-    <div class="graph-modal__content">
-      <h2 class="service-order__title graph-modal__title subtitle">Заказать интернет магазин</h2>
-      <form action="#" class="form service-order__form service-order__form--shop" id="contact-form-id">
-        <label class="service-order__label form__label">
-          <input class="form__input input-name" placeholder="Имя*" type="text" name="name">
-        </label>
-        <label class="service-order__label form__label">
-          <input class="form__input input-tel" placeholder="Телефон" type="tel" name="tel" autocomplete="off">
-        </label>
-        <label class="service-order__label form__label">
-          <input class="form__input input-email" placeholder="E-mail*" type="email" name="email">
-        </label>
-        <label class="service-order__hidden" hidden>
-          <input type="text" name="hidden" value="site_shop">
-        </label>
-        <button class="service-order__btn btn btn--dark">Оформить заявку</button>
-      </form>
-    </div>
-  </div>
-
-
-  <!-- <div hidden class="graph-modal__container modal-step" role="dialog" aria-modal="true" data-graph-target="step1">
-    <button class="graph-modal__close js-modal-close" aria-label="Закрыть модальное окно"></button>
-    <div class="graph-modal__content">
-      <div class="pre-project">
-        <h2 class="pre-project__title subtitle">Предпроектный анализ</h2>
-        <div class="pre-project__tabs tabs" data-tabs="preproject">
-          <ul class="tabs__nav">
-            <li class="tabs__nav-item">
-              <button class="tabs__nav-btn" type="button">Звонок</button>
-            </li>
-            <li class="tabs__nav-item">
-              <button class="tabs__nav-btn" type="button">Бриф</button>
-            </li>
-            <li class="tabs__nav-item">
-              <button class="tabs__nav-btn" type="button">Обсуждение</button>
-            </li>
-          </ul>
-          <div class="tabs__content">
-            <div class="tabs__panel">
-              <div class="modal-step__content">
-                <div class="tabs__descr">
-                  <p></p>
-                </div>
-                <div class="tabs__text"></div>
-              </div>
-
-            </div>
-            <div class="tabs__panel">
-              <div class="modal-step__content">
-                <div class="tabs__descr">
-                  <p>Lorem, ipsum dolor.</p>
-                  <p>Lorem, ipsum dolor.</p>
-                  <p>Lorem, ipsum dolor.</p>
-                  <p>Lorem, ipsum dolor.</p>
-                </div>
-                <div class="tabs__text"></div>
-              </div>
-            </div>
-            <div class="tabs__panel">
-              <div class="modal-step__content">
-                <div class="tabs__descr">
-                  <p>Lorem, ipsum dolor.</p>
-
-                  <p>Lorem, ipsum dolor.</p>
-                  <p>Lorem, ipsum dolor.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div hidden class="graph-modal__container" role="dialog" aria-modal="true" data-graph-target="step2">
-    <button class="graph-modal__close js-modal-close" aria-label="Закрыть модальное окно"></button>
-    <div class="graph-modal__content">step2</div>
-  </div>
-
-
-  <div hidden class="graph-modal__container" role="dialog" aria-modal="true" data-graph-target="step3">
-    <button class="graph-modal__close js-modal-close" aria-label="Закрыть модальное окно"></button>
-    <div class="graph-modal__content">step3</div>
-  </div>
-
-
-  <div hidden class="graph-modal__container" role="dialog" aria-modal="true" data-graph-target="step4">
-    <button class="graph-modal__close js-modal-close" aria-label="Закрыть модальное окно"></button>
-    <div class="graph-modal__content">step4</div>
-  </div>
-
-
-  <div hidden class="graph-modal__container" role="dialog" aria-modal="true" data-graph-target="step5">
-    <button class="graph-modal__close js-modal-close" aria-label="Закрыть модальное окно"></button>
-    <div class="graph-modal__content">step5</div>
-  </div>
-
-
-  <div hidden class="graph-modal__container" role="dialog" aria-modal="true" data-graph-target="step6">
-    <button class="graph-modal__close js-modal-close" aria-label="Закрыть модальное окно"></button>
-    <div class="graph-modal__content">step6</div>
-  </div>
-
-
-  <div hidden class="graph-modal__container" role="dialog" aria-modal="true" data-graph-target="step7">
-    <button class="graph-modal__close js-modal-close" aria-label="Закрыть модальное окно"></button>
-    <div class="graph-modal__content">step7</div>
-  </div>
-
-
-  <div hidden class="graph-modal__container" role="dialog" aria-modal="true" data-graph-target="step8">
-    <button class="graph-modal__close js-modal-close" aria-label="Закрыть модальное окно"></button>
-    <div class="graph-modal__content">step8</div>
-  </div> -->
-
-
 </div>

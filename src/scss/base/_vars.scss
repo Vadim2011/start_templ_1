@@ -3,19 +3,17 @@
 
 :root {
   // container
-  --content-width: #{rem(1160)};
-  --container-padding: #{rem(15)};
+  --content-width: #{rem(1180)};
+  --container-padding: #{rem(10)};
   --container-width: calc(var(--content-width) + (var(--container-padding)) * 2);
-  --content-fluid-width: #{rem(1720)};
-  --container-fluid-width: calc(var(--content-fluid-width) + (var(--container-padding)) * 2);
 
   // fonts
-  --font-default: "Jost", serif; // "Arial", "Helvetica Neue", "Helvetica", sans-serif;
+  --font-default: "Gilroy", serif; // "Arial", "Helvetica Neue", "Helvetica", sans-serif;
 
   // color
   --color-main: #141024;
   --color-accent: #d52027;
-  --color-dark: #141024;
+  --color-dark: #ccc;
   --color-light: #fff;
   --color-text: #000;
   --color-text-accent: #d52027;

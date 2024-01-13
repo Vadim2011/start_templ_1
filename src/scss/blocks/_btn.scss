@@ -1,0 +1,54 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: em(5);
+  padding: em(18) em(42);
+  font-weight: 400;
+  font-style: normal;
+  font-size: rem(18);
+  line-height: 1;
+  color: var(--color-text);
+  background-color: var(--color-accent);
+  transition: background-color 0.3s ease-in-out;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: rem(1) solid #c6151b;
+    outline-offset: rem(5);
+  }
+
+  @media (any-hover: hover) {
+    &:hover {
+      background-color: #eb353b;
+    }
+  }
+
+  /* stylelint-disable-next-line order/order */
+  &:active {
+    background-color: #c6151b;
+  }
+
+  &--dark {
+    background-color: var(--color-dark);
+
+    &:focus-visible {
+      outline: rem(1) solid #141024;
+      outline-offset: rem(5);
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: #251f40;
+      }
+    }
+
+    /* stylelint-disable-next-line order/order */
+    &:active {
+      background-color: #100c1f;
+    }
+  }
+}

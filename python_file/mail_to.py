@@ -2,6 +2,16 @@ from flask import Flask, render_template, request, jsonify
 from flask_mail import Mail, Message
 import json, os
 
+import dotenv
+
+
+dotenv.load_dotenv('.env')
+
+API_KEY = os.environ['API_KEY']
+
+# .env
+# API_KEY=asdfqwerty
+
 # system  /enc/enviroments
 # user    ~/.bashrc
 # session   export SESSION_VAR=777

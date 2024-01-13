@@ -1,9 +1,9 @@
 .hero {
-  background-color: var(--color-dark);
+  background-color: var(--color-bg);
 
   &__container {
-    padding-top: clamp-rem(320, 1200, 100, 344);
-    padding-bottom: clamp-rem(320, 1200, 40, 410);
+    padding-top: clamp-rem(320, 1200, 100, 244);
+    padding-bottom: clamp-rem(320, 1200, 40, 210);
   }
 
   &__content {
@@ -23,14 +23,10 @@
     font-size: var(--h1);
     line-height: 1.8;
     letter-spacing: rem(0.9);
-    color: var(--color-light);
+    color: var(--color-text);
 
     @media (max-width: $breakpoint768) {
       text-align: center;
     }
-  }
-
-  &__btn {
-    color: var(--color-light);
   }
 }

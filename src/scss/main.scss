@@ -10,27 +10,27 @@
 @import "base/fonts";
 @import "base/reset";
 @import "base/vars";
+@import "base/container";
 @import "base/base";
-// @import "base/svg_bg";
 
 // ======================================================================================
 
-/* Section */
-@import "section/global";
-@import "./blocks/modals";
+/* components */
+@import "blocks/global";
+@import "blocks/btn";
+@import "blocks/nav";
+@import "blocks/burger";
+@import "blocks/modals";
+@import "blocks/load_cercle";
+@import "blocks/form";
 
-// @import "./blocks/ticker";
-// @import "./blocks/form";
-// @import "./blocks/load_cercle";
-// @import "./blocks/tabs";
+// ======================================================================================
 
 // section base
-@import "./section/header";
-@import "./section/hero";
-@import "./section/about";
-@import "./section/contact";
+@import "section/header";
+@import "section/hero";
 
 // footer
-@import "./section/footer";
+@import "section/footer";
 
 // ========= section 2

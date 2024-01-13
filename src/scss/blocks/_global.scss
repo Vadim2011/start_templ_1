@@ -1,0 +1,49 @@
+/* stylelint-disable order/order */
+.title {
+  font-weight: 600;
+  font-style: normal;
+  font-size: var(--h2);
+  line-height: 1.6;
+  color: var(--color-dark);
+
+  &--center {
+    text-align: center;
+  }
+}
+
+.subtitle {
+  font-weight: 600;
+  font-style: normal;
+  font-size: var(--h3);
+  line-height: 1.6;
+  color: var(--color-dark);
+}
+
+.phone {
+  border-bottom: rem(1) solid transparent;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 28px;
+  line-height: lhc(48, 30); /* 48px */
+  color: var(--color-text);
+  transition: border-bottom 0.3s ease-in-out;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: rem(1) solid currentcolor;
+    outline-offset: rem(5);
+  }
+
+  @media (any-hover: hover) {
+    &:hover {
+      border-bottom: rem(1) solid currentcolor;
+    }
+  }
+
+  &:active {
+    border-bottom: rem(1) solid transparent;
+  }
+}
