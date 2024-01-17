@@ -62,6 +62,10 @@ body {
   color: var(--color-text);
   background-color: var(--color-bg);
 
+  // при нажатии кнопки прыжок экрана баг
+  /* stylelint-disable-next-line order/properties-order */
+  overflow-anchor: none;
+
   &.no-scroll {
     overflow: hidden;
   }
