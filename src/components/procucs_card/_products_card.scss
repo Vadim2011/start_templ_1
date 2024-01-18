@@ -1,0 +1,21 @@
+@import "../base/function";
+@import "../base/vars";
+
+.product-to-basket {
+  &__container {
+    padding-top: clamp-rem(320, 1200, 100, 244);
+    padding-bottom: clamp-rem(320, 1200, 40, 210);
+  }
+}
+
+.product-to-basket-main-grid {
+}
+
+.product-to-basket-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 10px;
+
+  &__item {
+  }
+}

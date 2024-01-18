@@ -1,0 +1,151 @@
+.order-modal {
+  &__title {
+    margin-bottom: rem(34);
+  }
+
+  &__label {
+    margin: 0 rem(4);
+    box-shadow: 0 0 rem(6) rgba(20, 16, 36, 0.2);
+  }
+
+  &__btn {
+    margin-top: rem(12);
+  }
+
+  &__info {
+    margin: 0 rem(4) rem(24);
+    border-radius: 0.3125rem;
+    padding: 1.125rem 1.125rem 0;
+    box-shadow: 0 0 rem(6) rgba(20, 16, 36, 0.2);
+    font-size: 16px;
+    line-height: lhc(20, 16);
+    color: var(--color-dark);
+
+    span {
+      font-size: 18px;
+      color: #aaa;
+    }
+  }
+
+  &__quantity {
+  }
+
+  &__info-item {
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__summ {
+  }
+
+  &__products {
+  }
+
+  &__list {
+    overflow: hidden;
+    padding: 0 20px;
+    max-height: 0;
+    opacity: 0;
+    transition: opacity 0.4s, max-height 0.4s, padding 0.4s;
+    will-change: max-height;
+
+    &.open {
+      overflow: auto;
+      padding: 20px;
+      max-height: 230px;
+      opacity: 1;
+      // box-sizing: content-box;
+    }
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 14px;
+    }
+  }
+
+  &__product {
+  }
+
+  &__open-btn {
+    position: relative;
+    border: none;
+    padding: 0 1.125rem 1.125rem 0;
+    font-size: 16px;
+    line-height: lhc(20, 16);
+    color: var(--color-dark);
+    background-color: transparent;
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 18%;
+      width: 8px;
+      height: 8px;
+      background-image: url("@img/svg/icon_all/arrow_down.svg");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      transition: transform 0.6s;
+    }
+
+    &.open {
+      &::after {
+        transform: rotateX(180deg);
+      }
+    }
+  }
+}
+
+.order-product {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  transition: background-color 0.3s;
+
+  &__img {
+    margin-right: 20px;
+    max-width: 60px;
+    max-height: 60px;
+    object-fit: cover;
+  }
+
+  &__body {
+    margin-right: 20px;
+    max-width: 280px;
+  }
+
+  &__title {
+    margin-right: 20px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: lhc(20, 16);
+    color: #4d4d4d;
+
+    &:not(:last-child) {
+      margin-bottom: rem(20);
+    }
+  }
+
+  &__price {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: lhc(23, 20);
+    color: #4d4d4d;
+  }
+
+  &__delete {
+    margin-left: auto;
+    border: none;
+    font-size: 16px;
+    line-height: lhc(20, 16);
+    color: var(--color-dark);
+    background-color: transparent;
+  }
+
+  &:hover {
+    background-color: #cef;
+  }
+}

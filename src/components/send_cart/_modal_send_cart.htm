@@ -1,0 +1,44 @@
+<!-- put in modal main -->
+
+<div class="graph-modal__container order-modal" role="dialog" aria-modal="true" data-graph-target="send-cart">
+  <button class="graph-modal__close order-modal__close js-modal-close" aria-label="Закрыть модальное окно"></button>
+  <div class="graph-modal__content order-modal__content">
+    <h2 class="order-modal__title subtitle">Оформить заказ</h2>
+    <div class="order-modal__info">
+      <div class="order-modal__quantity order-modal__info-item">Товаров в заказе: <span>0</span> шт</div>
+      <div class="order-modal__summ order-modal__info-item">Общая сумма заказа: <span>0</span> ₽</div>
+      <div class="order-modal__products order-modal__info-item">
+        <button class="order-modal__open-btn">
+          Состав заказа
+        </button>
+        <ul class="order-modal__list">
+          <!-- <li class="order-modal__item">
+            <article class="order-modal__product order-product">
+              <img src="@img/component/card/candle1.webp" alt="candele" class="order-product__img">
+              <div class="order-product__body">
+                <h3 class="order-product__title">Lorem ipsum dolor sit amet.</h3>
+                <span class="order-product__price">190 789 &#8381;</span>
+              </div>
+              <button class="order-product__delete" aria-label="удалить">удалить</button>
+            </article>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+    <form action="#" class="form order-modal__form">
+      <label class="order-modal__label form__label">
+        <input class="form__input input-name" placeholder="Имя*" type="text" name="name">
+      </label>
+      <label class="order-modal__label form__label">
+        <input class="form__input input-tel" placeholder="Телефон" type="tel" name="tel" autocomplete="off">
+      </label>
+      <label class="order-modal__label form__label">
+        <input class="form__input input-email" placeholder="E-mail*" type="email" name="email">
+      </label>
+      <label class="order-modal__hidden" hidden>
+        <input type="text" name="hidden" value="site_card">
+      </label>
+      <button class="order-modal__btn btn">Оформить</button>
+    </form>
+  </div>
+</div>
