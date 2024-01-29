@@ -1,0 +1,50 @@
+[
+  {
+    "id": "el1",
+    "name": "'15.6' Ноутбук DEXP Aquilon серебристый [Full )",
+    "img": "img/section/technology/logo_html.webp",
+    "price": 7999
+  },
+  {
+    "id": "el2",
+    "name": "15.6' Ноутбук Echips Joy серый [Full HD (1920x1080)",
+    "img": "img/section/technology/logo_css.webp",
+    "price": 37999
+  },
+  {
+    "id": "el3",
+    "name": "15.6' Ноутбук ASUS ExpertBook B1502CGA-BQ0084X черный",
+    "img": "img/section/technology/logo_js.webp",
+    "price": 47999
+  },
+  {
+    "id": "el4",
+    "name": "15.6' Ноутбук Infinix InBook Y2 PLUS XL29 серый",
+    "img": "img/section/technology/logo_django.webp",
+    "price": 27999
+  },
+  {
+    "id": "el5",
+    "name": "15.6' Ноутбук Maibenben M543 серебристый [Full HD (1920x1080), IPS, AMD Ryzen 3 4300U, ядра: 4 х 2.7 ГГц, RAM 8 ГБ, SSD 256 ГБ, AMD Radeon",
+    "img": "img/section/technology/logo_flask.webp",
+    "price": 17999
+  },
+  {
+    "id": "el6",
+    "name": "15.6' Ноутбук Maibenben M543 серебристый [Full HD (1920x1080), IPS, AMD Ryzen 3 4300U, ядра: 4 х 2.7 ГГц, RAM 8 ГБ, SSD 256 ГБ, AMD Radeon",
+    "img": "img/section/technology/logo_nginx.webp",
+    "price": 17999
+  },
+  {
+    "id": "el7",
+    "name": "15.6' Ноутбук Maibenben M543 серебристый [Full HD (1920x1080), IPS, AMD Ryzen 3 4300U, ядра: 4 х 2.7 ГГц, RAM 8 ГБ, SSD 256 ГБ, AMD Radeon",
+    "img": "img/section/technology/logo_python1.webp",
+    "price": 17999
+  },
+  {
+    "id": "el8",
+    "name": "15.6' Ноутбук Maibenben M543 серебристый [Full HD (1920x1080), IPS, AMD Ryzen 3 4300U, ядра: 4 х 2.7 ГГц, RAM 8 ГБ, SSD 256 ГБ, AMD Radeon",
+    "img": "img/section/technology/logo_ubuntu.webp",
+    "price": 1999000
+  }
+]

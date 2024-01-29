@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="img/favicon/favicon.png">
+  <title>Document</title>
+
+  <!-- Base index.css -->
+  <style>
+    :root {
+      --color-light: #f8f9fa;
+      --color-white: #fff;
+      --color-unaccent: #707070;
+      --color-medium: #e8e8e8;
+
+      --spacing-small: 10px;
+      --spacing-medium: 15px;
+      --spacing-large: 30px;
+
+      --border-radius: 3px;
+      --line-gradient: linear-gradient(to right, #e2f87c, #d6f567, #c8f151, #b9ee38, #a8eb12);
+      --box-shadow: 0 16px 24px 2px rgba(33, 37, 41, 0.02),
+        0 6px 30px 5px rgba(33, 37, 41, 0.04),
+        0 8px 10px -5px rgba(33, 37, 41, 0.1);
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #44f;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: #f44;
+      border-radius: 2px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      line-height: 1.7;
+      background-color: var(--color-light);
+    }
+  </style>
+
+  <!-- products -->
+  <style>
+    .products-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 40px;
+      width: 80%;
+      max-width: 1200px;
+      margin: var(--spacing-large) auto;
+    }
+
+    .products-element {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 25px 20px;
+      background-color: var(--color-white);
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+    }
+
+    .products-element__name {
+      margin-bottom: auto;
+      font-weight: bold;
+      font-size: 22px;
+    }
+
+    .products-element__img {
+      margin-top: var(--spacing-medium);
+      width: 100%;
+      height: 270px;
+      object-fit: contain;
+    }
+
+    .products-element__price {
+      margin-top: var(--spacing-medium);
+      color: var(--color-unaccent);
+    }
+
+    .products-element__btn {
+      margin-top: var(--spacing-medium);
+      padding: var(--spacing-small) var(--spacing-medium);
+      border: 1px solid var(--color-unaccent);
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      outline: none;
+      background: none;
+      font-size: 20px;
+    }
+
+    .products-element__btn--active {
+      margin-top: var(--spacing-medium);
+      border: 1px solid transparent;
+      background-image: var(--line-gradient);
+    }
+  </style>
+
+  <!-- header -->
+  <style>
+    .header-container {
+      display: flex;
+      height: 50px;
+      padding: var(--spacing-small);
+      background-color: var(--color-medium);
+    }
+
+    .header-counter {
+      margin-left: auto;
+      padding: 0 var(--spacing-medium);
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+
+  <!-- shopping -->
+  <style>
+    .shopping-container {
+      width: 98%;
+      height: 98vh;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin: auto;
+      padding: var(--spacing-large);
+      background-color: var(--color-white);
+      box-shadow: var(--box-shadow);
+      overflow-y: auto;
+    }
+
+    .shopping-element__name {
+      padding: var(--spacing-medium);
+      font-weight: bold;
+    }
+
+    .shopping-element__price {
+      padding: var(--spacing-medium);
+      color: var(--color-unaccent);
+    }
+
+    .shopping__close {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+    }
+
+    .shopping__close svg {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+  </style>
+
+  <!-- spinner -->
+  <style>
+    .spinner-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(33, 33, 33, 0.6);
+    }
+
+    .spinner-img {
+      width: 200px;
+      height: 200px;
+    }
+  </style>
+
+  <style>
+    .error-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(33, 33, 33, 0.6);
+    }
+
+    .error-text {
+      width: 200px;
+      color: var(--color-light);
+      text-align: center;
+      background-color: #e33;
+      line-height: 3;
+    }
+  </style>
+
+</head>
+
+<body>
+  <header class="heaer" id="header"></header>
+  <main class="main" id="products"></main>
+  <footer class="footer" id="shopping"></footer>
+  <div class="spinner" id="spinner"></div>
+  <div class="error" id="error"></div>
+
+
+  <!-- constans and utils -->
+  <!--     constants/catalog.js -->
+  <script>
+    // src/files/catalog.json
+    // const CATALOG = [
+    //   {
+    //     id: 'el1',
+    //     name: '15.6" Ноутбук DEXP Aquilon серебристый [Full )',
+    //     img: 'img/section/technology/logo_html.webp',
+    //     price: 7999,
+    //   },
+    //   {
+    //     id: 'el2',
+    //     name: '15.6" Ноутбук Echips Joy серый [Full HD (1920x1080)',
+    //     img: 'img/section/technology/logo_css.webp',
+    //     price: 37999,
+    //   },
+    //   {
+    //     id: 'el3',
+    //     name: '15.6" Ноутбук ASUS ExpertBook B1502CGA-BQ0084X черный',
+    //     img: 'img/section/technology/logo_js.webp',
+    //     price: 47999,
+    //   },
+    //   {
+    //     id: 'el4',
+    //     name: '15.6" Ноутбук Infinix InBook Y2 PLUS XL29 серый',
+    //     img: 'img/section/technology/logo_django.webp',
+    //     price: 27999,
+    //   },
+    //   {
+    //     id: 'el5',
+    //     name: '15.6" Ноутбук Maibenben M543 серебристый [Full HD (1920x1080), IPS, AMD Ryzen 3 4300U, ядра: 4 х 2.7 ГГц, RAM 8 ГБ, SSD 256 ГБ, AMD Radeon',
+    //     img: 'img/section/technology/logo_flask.webp',
+    //     price: 17999,
+    //   },
+    //   {
+    //     id: 'el6',
+    //     name: '15.6" Ноутбук Maibenben M543 серебристый [Full HD (1920x1080), IPS, AMD Ryzen 3 4300U, ядра: 4 х 2.7 ГГц, RAM 8 ГБ, SSD 256 ГБ, AMD Radeon',
+    //     img: 'img/section/technology/logo_nginx.webp',
+    //     price: 17999,
+    //   },
+    //   {
+    //     id: 'el7',
+    //     name: '15.6" Ноутбук Maibenben M543 серебристый [Full HD (1920x1080), IPS, AMD Ryzen 3 4300U, ядра: 4 х 2.7 ГГц, RAM 8 ГБ, SSD 256 ГБ, AMD Radeon',
+    //     img: 'img/section/technology/logo_python1.webp',
+    //     price: 17999,
+    //   },
+    //   {
+    //     id: 'el8',
+    //     name: '15.6" Ноутбук Maibenben M543 серебристый [Full HD (1920x1080), IPS, AMD Ryzen 3 4300U, ядра: 4 х 2.7 ГГц, RAM 8 ГБ, SSD 256 ГБ, AMD Radeon',
+    //     img: 'img/section/technology/logo_ubuntu.webp',
+    //     price: 1999000,
+    //   },
+    // ];
+  </script>
+  <!--    constants/root.js -->
+  <script>
+    const ROOT_PRODUCTS = document.getElementById('products');
+    const ROOT_HEADER = document.getElementById('header');
+    const ROOT_SHOPPING = document.getElementById('shopping');
+    const ROOT_SPINNER = document.getElementById('spinner');
+    const ROOT_ERROR = document.getElementById('error');
+  </script>
+  <!--     utils/localStorageUtil.js -->
+  <script>
+    // localStorage .clear() .getItem(k) .key(k) .length .setItem(k, v) .removeItem(k)
+    class LocalStorageUtil {
+      constructor() {
+        this.keyName = 'products';
+      }
+
+      clearProcucts() {
+        // localStorage.clear();
+        localStorage.removeItem(this.keyName);
+      }
+
+      getProducts() {
+        const productsLocalStorage = localStorage.getItem(this.keyName);
+        if (productsLocalStorage) {
+          // console.log(productsLocalStorage);
+          return JSON.parse(productsLocalStorage);
+        }
+        return [];
+      }
+
+      putProducts(id) {
+        let products = this.getProducts();
+        let pushProcuct = false;  // false - del true - add
+        const index = products.indexOf(id);
+
+        if (index === -1) {
+          products.push(id);
+          pushProcuct = true;
+        } else {
+          products.splice(index, 1);
+        }
+
+        localStorage.setItem(this.keyName, JSON.stringify(products));
+
+        return { pushProcuct, products }
+
+      }
+    }
+
+    const localStorageUtil = new LocalStorageUtil();
+
+    // localStorageUtil.putProducts('el33');
+    // localStorageUtil.putProducts('el44');
+
+    // const res = localStorageUtil.getProducts();
+    // console.log(res);
+  </script>
+
+
+  <!--  components/Header/Header.js -->
+  <script>
+    class Header {
+
+      handleOpenShoppingPage() {
+        shoppingPage.render();
+        // console.log('handOpenS');
+      }
+
+      render(count) {
+        const html = `
+            <div class="header-container">
+              <div class="header-counter" onclick="headderPage.handleOpenShoppingPage()">
+                🔥 ${count}
+              </div>
+            </div>
+
+        `;
+
+        ROOT_HEADER.innerHTML = html;
+      }
+
+    }
+
+    const headderPage = new Header();
+  </script>
+
+  <!--  components/Products/Products.js -->
+  <script>
+    class Products {
+
+      constructor() {
+        this.classNameActive = 'products-element__btn--active';
+        this.labelAdd = 'добавить в корзину';
+        this.labelRemove = 'удалить из корзины';
+      }
+
+      handlerSetLocationStorage(elem, id) {
+        const { pushProcuct, products } = localStorageUtil.putProducts(id);
+
+        if (pushProcuct) {
+          elem.classList.add(this.classNameActive);
+          elem.innerHTML = this.labelRemove;
+        } else {
+          elem.classList.remove(this.classNameActive);
+          elem.innerHTML = this.labelAdd;
+        }
+
+        // console.log(elem);
+        // console.log(id);
+
+        headderPage.render(products.length);
+      }
+
+      render() {
+        const productsStore = localStorageUtil.getProducts();
+        let htmlCatalog = '';
+
+        CATALOG.forEach(({ id, name, img, price }) => {
+          // console.log(el);
+          // console.log(id, name, img, price);
+          let activeClass = '';
+          let activeText = '';
+
+          if (productsStore.indexOf(id) === -1) {
+            activeText = this.labelAdd;
+          } else {
+            activeText = this.labelRemove;
+            activeClass = ' ' + this.classNameActive;
+          }
+
+          htmlCatalog += `
+                  <li class='products-element'>
+                    <span class='products-element__name'>${name}  ₽</span>
+                    <img class='products-element__img' src="${img}" alt="">
+                    <span class='products-element__price'>
+                      ⚡️${price.toLocaleString()} USD
+                      </span>
+                    <button class='products-element__btn${activeClass}'
+                      onclick="productsPage.handlerSetLocationStorage(this, '${id}')">
+                      ${activeText}
+                    </button>
+                  </li>
+                  `;  // products-element__btn--active
+        });
+
+        const html = `
+                    <ul class='products-container'>
+                      ${htmlCatalog}
+                    </ul>
+                    `;
+
+        ROOT_PRODUCTS.innerHTML = html;
+      }
+    }
+
+
+    const productsPage = new Products();
+  </script>
+
+  <!--  components/Shopping/Shopping.js -->
+  <script>
+    class Shopping {
+
+      handleClear() {
+        ROOT_SHOPPING.innerHTML = '';
+      }
+
+      render() {
+        const productsStore = localStorageUtil.getProducts();
+        let htmlCatalog = '';
+        let sumCatalog = 0;
+
+        CATALOG.forEach(({ id, name, price }) => {
+          if (productsStore.includes(id)) {
+            htmlCatalog += `
+            <tr class="shopping-element">
+              <td class="shopping-element__name">⚡️ ${name}</td>
+              <td class="shopping-element__price">${price.toLocaleString()} USD</td>
+            </tr>
+            `;
+            sumCatalog += price;
+          }
+
+
+        });
+
+        const html = `
+        <div class="shopping-container">
+          <table class="shopping-content">
+            ${htmlCatalog}
+            <tr class="shopping-element">
+              <td class="shopping-element__name">🔥 total</td>
+              <td class="shopping-element__price">${sumCatalog.toLocaleString()} USD</td>
+            </tr>
+          </table>
+          <div class="shopping__close" onclick="shoppingPage.handleClear()">
+            <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Menu / Close_LG"> <path id="Vector" d="M21 21L12 12M12 12L3 3M12 12L21.0001 3M12 12L3 21.0001" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g> </g></svg>
+          </div>
+        </div>
+        `;
+
+        ROOT_SHOPPING.innerHTML = html;
+
+      }
+    }
+
+    const shoppingPage = new Shopping();
+    // shoppingPage.render();
+  </script>
+
+  <!-- spinner -->
+  <script>
+    class Spinner {
+
+      handleClear() {
+        ROOT_SPINNER.innerHTML = '';
+      }
+
+      render() {
+        const html = `
+                    <div class="spinner-container">
+                      <img  class="spinner-img" src="./img/svg/spinner/Dual_Ring-1.7s-200px.svg" alt="spinner" >
+                    </div>
+
+                    `;
+
+        ROOT_SPINNER.innerHTML = html;
+      }
+    }
+
+    const spinnerPage = new Spinner();
+    // src/img/svg/spinner/Dual_Ring-1.7s-200px.svg
+  </script>
+
+  <script>
+    class Error {
+
+      hendlerClear() {
+        ROOT_ERROR.innerHTML = '';
+      }
+
+      render() {
+        const html = `
+                        <div class="error-container">
+                          <p class="error-text">
+                            доступ закрыт
+                          </p>
+                        </div>
+                        `;
+
+        ROOT_ERROR.innerHTML = html;
+      }
+    }
+
+    const errorPage = new Error();
+
+  </script>
+
+
+
+  <!-- index.js -->
+  <script>
+
+    function render() {
+      const productsStore = localStorageUtil.getProducts();
+
+      headderPage.render(productsStore.length);
+      productsPage.render();
+
+      spinnerPage.render();
+    }
+
+    // src/files/catalog.json
+    let CATALOG = [];
+
+    fetch('files/catalog.json')
+      .then(res => res.json())
+      .then(body => { CATALOG = body; render(); spinnerPage.handleClear(); })
+      .catch(err => {
+        console.log(err);
+        spinnerPage.handleClear();
+        errorPage.render();
+        setTimeout(errorPage.hendlerClear, 4000);
+      });
+
+  </script>
+
+
+
+  <!-- img/section/technology/logo_html.webp
+  img/section/technology/logo_css.webp
+  img/section/technology/logo_js.webp -->
+
+  <!-- // get    getComputedStyle(document.documentElement).getPropertyValue('--container-padding-px')
+  // set    document.documentElement.style.setProperty('--my-variable-name', 'pink'); -->
+
+</body>
+
+</html>
